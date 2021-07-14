@@ -1,14 +1,13 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jun 16 14:03:33 2021
-
-@author: Administrator
-"""
 
 from flask import Flask, request
 from flask_restful import Resource, Api
 
 import pandas as pd
+
+import tensorflow as tf
+import tensorflow_hub as hub
+
+
 
 details = {
     'PhoneNo': [9444415512,9176435819,9003282132],
@@ -40,6 +39,12 @@ app = Flask(__name__)
 @app.route('/getinfo/<nos>', methods=['GET'])
 def get(nos):
     return {'data': get_info(nos)}
+
+
+@app.route('/home')
+def hello_world():
+    return 'Hello, World!'
+
 
 if __name__ == '__main__':
      app.run()
