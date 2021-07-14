@@ -40,7 +40,7 @@ app = Flask(__name__)
 
 @app.route('/getinfo/<nos>')
 def get(nos):
-    return {'data': get_info(nos)}
+    return "Hi, I work"
 
 if __name__ == '__main__':
      app.run()
