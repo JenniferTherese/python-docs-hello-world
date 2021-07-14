@@ -35,12 +35,11 @@ def get_info(nos):
         result = "Validation failed"
     return result
 
-from flask import Flask
 app = Flask(__name__)
 
-@app.route('/getinfo')
-def get():
-    return "Hi, I work"
+@app.route('/getinfo/<nos>', methods=['GET'])
+def get(nos):
+    return {'data': get_info(nos)}
 
 if __name__ == '__main__':
      app.run()
