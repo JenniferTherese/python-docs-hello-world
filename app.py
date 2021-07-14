@@ -38,8 +38,8 @@ def get_info(nos):
 from flask import Flask
 app = Flask(__name__)
 
-@app.route('/getinfo/<nos>')
-def get(nos):
+@app.route('/getinfo')
+def get():
     return "Hi, I work"
 
 if __name__ == '__main__':
