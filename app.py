@@ -1,6 +1,18 @@
-from flask import Flask
-app = Flask(__name__)
+import getinfo
+from flask import Flask, request
+from flask_restful import Resource, Api
 
-@app.route("/")
-def hello():
-    return "Hello, World!"
+app = Flask(__name__)
+api = Api(app)
+
+
+
+
+class Information(Resource):
+    def get(self, nos):
+        return {'data': getinfo.get_info(nos)}
+
+api.add_resource(Information, '/getinfo/<nos>')
+
+if __name__ == '__main__':
+     app.run()
